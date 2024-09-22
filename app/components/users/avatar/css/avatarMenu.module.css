@@ -1,0 +1,26 @@
+.menuGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	padding: 1rem;
+	grid-gap: 1rem;
+	margin-top: 1rem;
+	justify-items: center;
+	text-align: center;
+}
+.menuGrid > section {
+	border-radius: 0.5rem;
+	width: 5rem;
+	height: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 0.7rem;
+}
+.menuGrid > Button {
+	grid-column: 1/4;
+}
+.paymentDetail {
+	width: 100% !important;
+	grid-column: 1/4;
+}

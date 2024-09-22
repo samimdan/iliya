@@ -1,0 +1,13 @@
+/* HTML: <img class="octagon" src="" alt=""> */
+.octagon {
+	width: 200px;
+	aspect-ratio: 1;
+	--o: calc(50% * tan(-22.5deg));
+	clip-path: polygon(
+		var(--o) 50%,
+		50% var(--o),
+		calc(100% - var(--o)) 50%,
+		50% calc(100% - var(--o))
+	);
+	background: #3b8686;
+}
