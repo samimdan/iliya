@@ -1,3 +1,4 @@
+'use client'
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -6,14 +7,16 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import  LogOutSvg  from '@/app/svgs/logOut'
+import {motion} from 'framer-motion'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import React from 'react'
+import React, { useRef } from 'react'
 import UserAvatar from './userAvatar'
 import AvatarInfo from './avatarInfo'
 import { MenuObject } from '@/app/enum/Menus'
 import { addCommas, convertToPersian } from '@/app/utilties/convertToPersian'
 import IranCurrencyIcon from '@/app/svgs/currency'
-import { Currency, User } from 'lucide-react'
+import { Currency, LogOut, User } from 'lucide-react'
 import styles from './css/avatarMenu.module.css'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -21,48 +24,60 @@ import { UserMenu } from '@/app/enum/PersianCommonWorld'
 const Menu = MenuObject(20)
 
 const persianTotalProjects = addCommas(convertToPersian('6410000'))
-const persianTotalCourse = addCommas(convertToPersian('64100000000'))
+const persianTotalCourse = addCommas(convertToPersian('120000'))
 
 export default function AvatarMenu() {
+	const [menu, setMenu] = React.useState<boolean>(false)
+	const logOut=useRef(null)
 	return (
 		<div className='flex flex-col items-center relative w-48'>
-			<UserAvatar
-				size={40}
-				hover
-			/>
+			<section className='flex flex-row-reverse items-center justify-end
+			 gap-5'>
+				<section onClick={()=> setMenu(!menu)}>
+					<UserAvatar
+						size={40}
+						hover
+					/>
+				</section>
+		<LogOutSvg ref={logOut} className='w-5 h-5' />
+			</section>
 			<div
 				className={cn(
-					'absolute top-11 border shadow-md  rounded-md ',
+					'absolute hidden top-11 border shadow-md  rounded-md transition-all duration-500 ease-in-out',
 					styles.menuGrid,
+					{'!hidden':!menu}
+				
 				)}
 			>
-				<section className='gap-1 p-1 bg-primary/5'>
+				<section className='gap-1 relative p-1 border border-primary/10 shadow-sm cursor-pointer hover:bg-primary/15'>
 					<section>{Menu.Tickets.MenuIcon}</section>
 					<section>{Menu.Tickets.MenuText}</section>
+					<section className=' absolute w-4 h-4 rounded-full flex justify-center items-center top-2 left-2 pt-0.5 bg-rose-500 text-white text-xs'>{convertToPersian('1')}</section>
 				</section>
-				<section className='gap-1 p-1 bg-primary/5'>
+				<section className=' relative  p-1 border border-primary/10 shadow-sm cursor-pointer hover:bg-primary/15'>
 					<section>{Menu.Basket.MenuIcon}</section>
 					<section>{Menu.Basket.MenuText}</section>
+					<section className='absolute w-4 h-4 bg-rose-500 flex justify-center items-center rounded-full text-white text-xs  top-2 left-2 pt-0.5'>{convertToPersian('3')}</section>
 				</section>
-				<section className='gap-1 p-1 bg-primary/5'>
+				<section className='gap-1 p-1 border border-primary/10 shadow-sm cursor-pointer hover:bg-primary/15'>
 					<section>{Menu.MyCourses.MenuIcon}</section>
 					<section>{Menu.MyCourses.MenuText}</section>
 				</section>
-				<section className='gap-1 p-1 bg-primary/5'>
+				<section className='gap-1 p-1 border border-primary/10 shadow-sm cursor-pointer hover:bg-primary/15'>
 					<section>{Menu.MyProjects.MenuIcon}</section>
 					<section>{Menu.MyProjects.MenuText}</section>
 				</section>
-				<section className='gap-1 p-1 bg-primary/5'>
+				<section className='gap-1 p-1 border border-primary/10 shadow-sm cursor-pointer hover:bg-primary/15'>
 					<section>{Menu.Setting.MenuIcon}</section>
 					<section>{Menu.Setting.MenuText}</section>
 				</section>
-				<section className='gap-1 p-1 bg-primary/5'>
+				<section className='gap-1 p-1 border border-primary/10 shadow-sm cursor-pointer hover:bg-primary/15'>
 					<section>{Menu.Profile.MenuIcon}</section>
 					<section>{Menu.Profile.MenuText}</section>
 				</section>
 
 				<section
-					className={cn(styles.paymentDetail, 'gap-1 p-1 bg-primary/5  ')}
+					className={cn(styles.paymentDetail, 'gap-1 p-1 border border-primary/10 shadow-sm cursor-pointer hover:bg-primary/15  ')}
 				>
 					<div className='px-2 w-full h-full flex justify-between items-center'>
 						<span className='flex flex-col justify-center items-center gap-1'>
@@ -80,11 +95,20 @@ export default function AvatarMenu() {
 						</span>
 						<span className='flex flex-col justify-center items-center gap-1'>
 							<section>{Menu.MyCourses.MenuText}</section>
+							
+								<section className='text-xs text-green-500 '>
+									{persianTotalCourse}
+								</section>
+								<section>
+									{<IranCurrencyIcon className='w-5 h-5 fill-green-500 ' />}
+								</section>
+							
 						</span>
 					</div>
 				</section>
 
-				<Button
+				<Button className='w-full'
+					onClick={() => setMenu(false)}
 					variant='destructive'
 					size='sm'
 				>

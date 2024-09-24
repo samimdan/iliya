@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import AvatarMenu from '../users/avatar/avatarMenu'
-import { Search, ShoppingCart, Tally4 } from 'lucide-react'
+import { LogOut, Search, ShoppingCart, Tally4 } from 'lucide-react'
 import SearchMobileIcon from './mobile/searchMobileIcon'
 
 import SearchBar from './Search/searchBar'
@@ -21,7 +21,7 @@ const NavBar = () => {
 				<section className='hidden md:flex'>
 					<SearchBar model={SearchType.Desktop} />
 				</section>
-
+			
 				<AvatarMenu />
 
 				<Tally4
@@ -29,16 +29,7 @@ const NavBar = () => {
 					className='rotate-90 md:hidden'
 					strokeWidth={2.5}
 				/>
-				{/* <div className='hidden md:flex'>
-					<ul className='flex  gap-5'>
-						<li>{NavMenu.Home}</li>
-						<li>{NavMenu.Learning}</li>
-						<li>{NavMenu.Shop}</li>
-						<li>{NavMenu.Projects}</li>
-						<li>{NavMenu.About}</li>
-						<li>{NavMenu.ContactUs}</li>
-					</ul>
-				</div> */}
+				 
 				<div className='flex  gap-12 md:hidden'>
 					<SearchMobileIcon />
 					<ShoppingCart
@@ -48,6 +39,16 @@ const NavBar = () => {
 				</div>
 			</div>
 			<SearchBar model={SearchType.Mobile} />
+			<div className='hidden md:flex'>
+					<ul className='flex  gap-5'>
+						<li>{NavMenu.Home}</li>
+						<li>{NavMenu.Learning}</li>
+						<li>{NavMenu.Shop}</li>
+						<li>{NavMenu.Projects}</li>
+						<li>{NavMenu.About}</li>
+						<li>{NavMenu.ContactUs}</li>
+					</ul>
+				</div> 
 		</div>
 	)
 }
