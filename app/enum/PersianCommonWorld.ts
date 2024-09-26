@@ -13,6 +13,8 @@ export enum NavMenu {
 	Learning = 'آموزش',
 	Shop = 'فروشگاه',
 	About = 'درباره ما',
+	AritificialIntelligence = 'هوش مصنوعی',
+	Artical = 'مقالات',
 	Projects = 'پروژه ها',
 
 	ContactUs = 'تماس با ما',

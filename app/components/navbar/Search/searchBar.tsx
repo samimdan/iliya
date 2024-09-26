@@ -49,14 +49,15 @@ export default function SearchBar({
 					<input
 						type='text'
 						placeholder={SearchWord.SearchPlaceHolder}
-						className={cn('w-[40rem] px-2 py-2  z-10 border-2 rounded-md', {
+						className={cn('w-[40rem] px-2 py-2  z-10 border border-primary/15 rounded-md', {
 							'border-blue-500': searchState,
 						})}
 					/>
-					<div className='absolute top-2 left-1 pr-1 border-r outline-none'>
+					<div className='absolute top-2 left-1 pr-1 border-r outline-none transition-all'>
 						<Search
 							size={22}
-							className='cursor-pointer'
+							className='cursor-pointer text-primary/50 hover:text-primary/100'
+
 						/>
 					</div>
 				</div>

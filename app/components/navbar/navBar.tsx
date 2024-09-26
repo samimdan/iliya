@@ -21,7 +21,7 @@ const NavBar = () => {
 				<section className='hidden md:flex'>
 					<SearchBar model={SearchType.Desktop} />
 				</section>
-			
+
 				<AvatarMenu />
 
 				<Tally4
@@ -29,7 +29,7 @@ const NavBar = () => {
 					className='rotate-90 md:hidden'
 					strokeWidth={2.5}
 				/>
-				 
+
 				<div className='flex  gap-12 md:hidden'>
 					<SearchMobileIcon />
 					<ShoppingCart
@@ -39,16 +39,20 @@ const NavBar = () => {
 				</div>
 			</div>
 			<SearchBar model={SearchType.Mobile} />
-			<div className='hidden md:flex'>
-					<ul className='flex  gap-5'>
-						<li>{NavMenu.Home}</li>
-						<li>{NavMenu.Learning}</li>
-						<li>{NavMenu.Shop}</li>
-						<li>{NavMenu.Projects}</li>
-						<li>{NavMenu.About}</li>
-						<li>{NavMenu.ContactUs}</li>
-					</ul>
-				</div> 
+			<div className='hidden md:flex '>
+				<ul className='flex  gap-5 transition hover:cursor-pointer'>
+					<li className='hover:text-primary'>{NavMenu.Home}</li>
+					<li className='hover:text-primary'>{NavMenu.Learning}</li>
+					<li className='hover:text-primary'>{NavMenu.Shop}</li>
+					<li className='hover:text-primary'>{NavMenu.Projects}</li>
+					<li className='hover:text-primary'>
+						{NavMenu.AritificialIntelligence}
+					</li>
+					<li className='hover:text-primary'>{NavMenu.Artical}</li>
+					<li className='hover:text-primary'>{NavMenu.About}</li>
+					<li className='hover:text-primary'>{NavMenu.ContactUs}</li>
+				</ul>
+			</div>
 		</div>
 	)
 }
