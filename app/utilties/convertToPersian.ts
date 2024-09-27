@@ -1,6 +1,8 @@
 export const splitIntoArray = (num: string): number[] => {
 	return num.toString().split('').map(Number)
 }
+//
+
 export const convertToPersian = (num: string): string => {
 	splitIntoArray(num)
 	const persianNumbers: string[] = [
