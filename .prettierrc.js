@@ -18,6 +18,5 @@ module.exports = {
 	tabWidth: 2,
 	useTabs: true,
 	embeddedLanguageFormatting: 'auto',
-	singleAttributePerLine : true,
-	
+	singleAttributePerLine: true,
 }

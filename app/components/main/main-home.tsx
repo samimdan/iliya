@@ -5,7 +5,8 @@ import { ProductdataBase } from '@/app/Temp/database'
 import TeacherIcon from '@/app/svgs/teacher-icon'
 import UserIcon from '@/app/svgs/users-solid'
 import RatingStar from '@/app/svgs/rating-star'
-import { ShoppingBasket, Star, Timer, Users } from 'lucide-react'
+import { Star, Timer, Users } from 'lucide-react'
+import ShoppingBasket from '@/app/svgs/shopping-basket'
 import {
 	addCommas,
 	convertToPersian,
@@ -15,6 +16,7 @@ import IranCurrencyIcon from '@/app/svgs/currency'
 import { Technology } from '@/app/utilties/Technology/Technology'
 import { BuyWord } from '@/app/enum/PersianCommonWorld'
 import { AddToBasketIcon } from '@/app/svgs/iliya-icons'
+import CartPlus from '@/app/svgs/cart-plus'
 interface IProductDataBase {
 	id: number
 	title: string
@@ -110,8 +112,8 @@ export default function MainHome() {
 							))}
 						</section>
 					</section>
-					<section className='w-[90%] flex item-center justify-center p-1 mx-auto my-2 rounded-xl border bg-primary/5'>
-						<AddToBasketIcon className='w-8 h-8' />
+					<section className='w-full flex item-center justify-center p-1 mx-auto my-2  border bg-primary/5'>
+						<CartPlus className='w-6 h-6' />
 					</section>
 				</motion.div>
 			)}
