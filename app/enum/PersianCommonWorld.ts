@@ -44,11 +44,13 @@ export enum ShopBasketMenu {
 	Total = 'مبلغ قابل پرداخت',
 	Checkout = 'ثبت سفارش',
 	Currency = 'تومان',
+	AddToBasket = '',
 }
 export enum BuyWord {
 	Buy = 'خرید',
 	Person = 'نفر',
 	AddToBasket = 'افزودن به سبد خرید',
+	ExistedInBasket = 'محصول در سبد خرید وجود دارد',
 }
 export enum SortingWord {
 	Price = 'قیمت',

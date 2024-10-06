@@ -1,5 +1,10 @@
 import { create } from 'zustand'
-import { IlogedUserState, IsearchState } from '@/app/Interfaces/statesInterface'
+import {
+	IBasketCardState,
+	IlogedUserState,
+	IsearchState,
+} from '@/app/Interfaces/statesInterface'
+import { IProductDataBase } from '@/app/Interfaces/basketInterface'
 export const useSearchState = create<IsearchState>((set) => ({
 	search: false,
 	setSearch: (search: boolean) => set((state) => ({ search })),
@@ -7,4 +12,8 @@ export const useSearchState = create<IsearchState>((set) => ({
 export const useLogedUserState = create<IlogedUserState>((set) => ({
 	user: null,
 	setLogedUser: (user) => set((state) => ({ user })),
+}))
+export const useBasketCardState = create<IBasketCardState>((set) => ({
+	basket: [],
+	setBasket: (basket: Array<number>) => set((state) => ({ basket })),
 }))

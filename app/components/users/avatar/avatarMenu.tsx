@@ -32,9 +32,9 @@ export default function AvatarMenu() {
 	const [menu, setMenu] = React.useState<boolean>(false)
 
 	return (
-		<div className='flex flex-col items-center relative w-48'>
+		<div className='flex flex-col items-center  relative w-48'>
 			<section
-				className='flex flex-row-reverse items-center justify-end
+				className='flex flex-row-reverse  items-center justify-end
 			 gap-5'
 			>
 				<section onClick={() => setMenu(!menu)}>
@@ -48,7 +48,7 @@ export default function AvatarMenu() {
 			</section>
 			<div
 				className={cn(
-					'absolute hidden top-11 border shadow-md  rounded-md transition-all duration-500 ease-in-out',
+					'absolute hidden top-11 border shadow-md bg-white rounded-md transition-all duration-500 ease-in-out',
 					styles.menuGrid,
 					{ '!hidden': !menu },
 				)}
