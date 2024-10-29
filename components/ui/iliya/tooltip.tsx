@@ -13,18 +13,6 @@ const Tooltip = ({ children, content, className }: ITooltipProps) => {
 	const [contentWidth, setContentWidth] = React.useState<number>(0)
 	const [contentHeight, setContentHeight] = React.useState<number>(0)
 
-	useEffect(() => {
-		if (childRef.current) {
-			const childrenElement = childRef.current.getBoundingClientRect()
-			setChildrenWidth(childrenElement.width)
-			setChildrenHeight(childrenElement.height)
-		}
-		if (contentRef.current) {
-			const contentElement = contentRef.current.getBoundingClientRect()
-			setContentWidth(contentElement.width)
-			setContentHeight(contentElement.height)
-		}
-	}, [])
 	return (
 		<div
 			onMouseEnter={() => setOpen(true)}
@@ -38,11 +26,10 @@ const Tooltip = ({ children, content, className }: ITooltipProps) => {
 					initial={{
 						x: '-50%',
 						opacity: 0,
-						y: -10,
 					}}
 					animate={{
 						opacity: 1,
-						y: 0,
+
 						transition: { duration: 0.5 },
 					}}
 					ref={contentRef}

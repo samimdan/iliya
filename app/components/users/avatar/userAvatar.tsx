@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Login } from '@/app/components/auth/Login'
 import { useLogedUserState } from '../../globalState/store'
 import { cn } from '@/lib/utils'
+import { userdataBase } from '@/app/Temp/database' // Adjust the import path as necessary
 
 export default function UserAvatar({
 	size,
@@ -14,8 +15,7 @@ export default function UserAvatar({
 	size: number
 	hover?: boolean
 }) {
-	Login(0)
-	const user = useLogedUserState((state) => state.user)
+	const user = userdataBase[0]
 
 	return (
 		<>

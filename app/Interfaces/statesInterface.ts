@@ -2,6 +2,7 @@ import exp from 'constants'
 
 import { IUser } from './userInterface'
 import { IProductDataBase } from './basketInterface'
+import { UUID } from 'crypto'
 
 export interface IsearchState {
 	search: boolean
@@ -13,6 +14,8 @@ export interface IlogedUserState {
 	setLogedUser: (user: IUser) => void
 }
 export interface IBasketCardState {
-	basket: Array<number>
-	setBasket: (basket: Array<number>) => void
+	basketCartState: string[]
+	addToBasketState: (newBasket: string) => void
+	setBasketState: (newBasket: string[]) => void
+	removeBasketState: (removeBasket: string) => void
 }

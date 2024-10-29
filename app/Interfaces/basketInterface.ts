@@ -1,5 +1,6 @@
+import type { UUID } from 'crypto'
 export interface IProductDataBase {
-	id: number
+	id: string
 	title: string
 	description: string
 	time: string
