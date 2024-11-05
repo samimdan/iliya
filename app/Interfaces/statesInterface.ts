@@ -13,9 +13,9 @@ export interface IlogedUserState {
 	user: IUser | null
 	setLogedUser: (user: IUser) => void
 }
-export interface IBasketCardState {
-	basketCartState: string[]
+export interface IUseBasketStorage {
+	basketStorage: string[]
 	addToBasketState: (newBasket: string) => void
-	setBasketState: (newBasket: string[]) => void
+
 	removeBasketState: (removeBasket: string) => void
 }

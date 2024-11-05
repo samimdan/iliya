@@ -1,23 +1,27 @@
-import { useEffect, useState } from 'react'
-
-import { useBasketState } from '@/app/components/globalState/store'
-
 export default function Basket() {
-	const { addToBasketState, setBasketState, basketCartState } = useBasketState()
 	const getFromBasketLS = () => {
 		if (!localStorage.getItem('basket')) {
+			return
 		} else {
 			const basketStateLS = JSON.parse(localStorage.getItem('basket') as string)
+
+			console.log('🚀 ~ getFromBasketLS ~ basketStateLS:', basketStateLS)
+
 			return basketStateLS
 		}
 	}
 	const addToBasketLS = (newBasket: string) => {
-		addToBasketState(newBasket)
-		localStorage.setItem('basket', JSON.stringify(basketCartState))
-
-		console.log(basketCartState)
-		console.log('Basketchanged')
+		if (!localStorage.getItem('basket')) {
+			localStorage.setItem('basket', JSON.stringify([newBasket]))
+			console.log('not basket')
+			return
+		}
+		const basketCartState = JSON.parse(localStorage.getItem('basket') as string)
+		localStorage.setItem(
+			'basket',
+			JSON.stringify(basketCartState.concat(newBasket)),
+		)
 	}
 
-	return { addToBasketLS }
+	return { addToBasketLS, getFromBasketLS }
 }

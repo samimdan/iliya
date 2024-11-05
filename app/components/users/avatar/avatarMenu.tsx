@@ -1,27 +1,18 @@
 'use client'
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import ShoppingBasket from '@/app/svgs/shopping-basket'
 
-import { motion } from 'framer-motion'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import React, { useRef } from 'react'
 import UserAvatar from './userAvatar'
-import AvatarInfo from './avatarInfo'
+
 import { MenuObject } from '@/app/enum/Menus'
 import { addCommas, convertToPersian } from '@/app/utilties/convertToPersian'
 import IranCurrencyIcon from '@/app/svgs/currency'
-import { Currency, LogOut, User } from 'lucide-react'
+
 import styles from './css/avatarMenu.module.css'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { UserMenu } from '@/app/enum/PersianCommonWorld'
-import ShoppingBasketAnimation from '../shopping-basket'
+
 import LogoutAnimation from '@/app/svgs/logOut'
 const Menu = MenuObject(20)
 
@@ -32,7 +23,7 @@ export default function AvatarMenu() {
 	const [menu, setMenu] = React.useState<boolean>(false)
 
 	return (
-		<div className='flex flex-col items-center  relative w-48'>
+		<div className='flex flex-col items-center z-10  relative w-48'>
 			<section
 				className='flex flex-row-reverse  items-center justify-end
 			 gap-5'
@@ -43,7 +34,7 @@ export default function AvatarMenu() {
 						hover
 					/>
 				</section>
-				<ShoppingBasketAnimation />
+				<ShoppingBasket className='w-8 h-8' />
 				<LogoutAnimation />
 			</section>
 			<div

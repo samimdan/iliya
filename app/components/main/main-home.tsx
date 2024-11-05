@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { UUID } from 'crypto'
 import { v4 as uuidv4 } from 'uuid'
 import Basket from '@/app/local-storage/basket'
-import { useBasketState } from '@/app/components/globalState/store'
+import { useBasketStorage } from '@/app/components/globalState/store'
 interface IProductDataBase {
 	id: string
 	title: string
@@ -23,19 +23,16 @@ interface IProductDataBase {
 export default function MainHome() {
 	const [products, setProducts] = useState<Array<IProductDataBase>>()
 
-	const { addToBasketState, setBasketState, basketCartState } = useBasketState()
-
 	useEffect(() => {
-		Basket()
 		setProducts(ProductdataBase)
-		console.log(basketCartState)
 	}, [])
+
 	return (
 		<Grid className='flex flex-col mt-10 justify-center items-center'>
 			{products?.map((product) => (
 				<ProductPreview
 					key={uuidv4()}
-					{...product}
+					products={product}
 				/>
 			))}
 		</Grid>

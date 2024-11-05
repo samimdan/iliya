@@ -1,39 +1,42 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import CartPlus from '@/app/svgs/cart-plus'
 import { useState } from 'react'
 import Tooltip from '@/components/ui/iliya/tooltip'
 import { BuyWord } from '@/app/enum/PersianCommonWorld'
 import { cn } from '@/lib/utils'
-import Basket from '@/app/local-storage/basket'
-import { useBasketState } from '@/app/components/globalState/store'
-import { UUID } from 'crypto'
+import { useBasketStorage } from '@/app/components/globalState/store'
+import Ticket from '@/app/svgs/ticket'
+import Trash from '@/app/svgs/trash'
+import ShoppingBasket from '@/app/svgs/shopping-basket'
 export default function CartPlusSection({ productID }: { productID: string }) {
 	const [isHoverd, setIsHoverd] = React.useState(false)
-	const { basketCartState, addToBasketState } = useBasketState()
-	const { basketStateLS, addToBasketLS } = Basket()
-	const [basket, setBasket] = useState<Array<string>>()
+	const { addToBasketState, basketStorage } = useBasketStorage()
 
+	const [basket, setBasket] = useState<boolean>(true)
+	useEffect(() => {
+		if (basketStorage) {
+			setBasket(basketStorage.includes(productID))
+		}
+	}, [basketStorage])
 	return (
 		<Tooltip content={basket ? BuyWord.ExistedInBasket : BuyWord.AddToBasket}>
 			<section
-				onClick={() => addToBasketLS(productID)}
+				onClick={() => addToBasketState(productID)}
 				onMouseEnter={() => setIsHoverd(true)}
 				onMouseLeave={() => setIsHoverd(false)}
-				className={cn(
-					'w-full flex item-center justify-center p-1 mx-auto my-2 hover:cursor-pointer border bg-primary/5  ',
-					basket ? 'bg-primary-foreground' : 'bg-primary/5',
-				)}
 			>
 				{basket ? (
-					<p className='p-1 text-lime-500 text-[0.7rem] '>
-						{BuyWord.ExistedInBasket}
-					</p>
+					<section className='w-full flex justify-center p-2'>
+						<Ticket className='w-8 h-8' />
+					</section>
 				) : (
-					<CartPlus
-						className='w-8 h-8 '
-						hoverd={isHoverd}
-					/>
+					<section className='w-full flex justify-center p-2'>
+						<ShoppingBasket
+							outSideHover={isHoverd}
+							className='w-8 h-8'
+						/>
+					</section>
 				)}
 			</section>
 		</Tooltip>

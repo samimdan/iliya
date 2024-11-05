@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { use, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { IProductDataBase } from '@/app/Interfaces/basketInterface'
 import CartPlus from '@/app/svgs/cart-plus'
@@ -10,18 +10,17 @@ import {
 	timeToPersian,
 } from '@/app/utilties/convertToPersian'
 import TeacherIcon from '@/app/svgs/teacher-icon'
-
 import RatingStar from '@/app/svgs/rating-star'
 import IranCurrencyIcon from '@/app/svgs/currency'
 import CartPlusSection from '../shop/shop-basket/cart-plus-section'
 import { v4 as uuidv4 } from 'uuid'
-import { UUID } from 'crypto'
-export default function ProductPreview(
-	products: IProductDataBase,
-	isInBasket: boolean,
-) {
-	if (products === undefined) return null
 
+export default function ProductPreview({
+	products,
+}: {
+	products: IProductDataBase
+}) {
+	if (products === undefined) return null
 	const price = addCommas(convertToPersian(products.price.toString()))
 	return (
 		<div className='flex flex-col  '>
