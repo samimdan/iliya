@@ -3,13 +3,13 @@ import { IUser } from '../Interfaces/userInterface'
 import { v4 as uuidv4 } from 'uuid'
 import { Technology } from '../utilties/Technology/Technology'
 import { UUID } from 'crypto'
+
 export const userdataBase: Array<IUser> = [
 	{
 		id: '7d7a6eb6-8510-41f0-95fc-6dcaa0b16b1f',
 		email: 'samim.danesh@gmail.com',
 		name: 'صمیم دانش',
-		image:
-			'https://lh3.googleusercontent.com/a/ACg8ocJpvVux687rVMiOUKLjmyK3aVal4r8pZ_9t4agmQvNMrDvu6Vee=s360-c-no',
+		image: '@/app/src/googleimage.jpg',
 		role: Role.Admin,
 	},
 	{

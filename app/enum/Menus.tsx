@@ -13,6 +13,7 @@ import {
 	Wallet,
 } from 'lucide-react'
 import { NavMenu, UserMenu } from './PersianCommonWorld'
+import MessageIcon from '../svgs/message-icon'
 
 export const MenuObject = (iconSize: number) => {
 	return {
@@ -55,7 +56,6 @@ export const MenuObject = (iconSize: number) => {
 		Tickets: {
 			Menu: 'Tickets',
 			MenuText: UserMenu.Tickets,
-			MenuIcon: <Mail size={iconSize} />,
 		},
 		Basket: {
 			Menu: 'Basket',

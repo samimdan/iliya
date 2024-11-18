@@ -33,8 +33,8 @@ export default function ProductPreview({
 				>
 					<img
 						key={uuidv4()}
-						src={products.img}
 						alt={products.title}
+						src={products.img}
 						className='bg-cover border-b-2 border-primary/10 p-1.5 pb-4  h-64 mx-auto'
 					/>
 					<span className='text-black text-md font-bold mt-2 w-full text-center'>

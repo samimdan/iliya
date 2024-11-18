@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AvatarMenu from '../users/avatar/avatarMenu'
+import AvatarMenu from '../users/avatar/avatar'
 import { LogOut, Search, ShoppingCart, Tally4 } from 'lucide-react'
 import SearchMobileIcon from './mobile/searchMobileIcon'
 
